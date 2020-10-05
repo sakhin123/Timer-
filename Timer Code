@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+    <html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="HandheldFriendly" content="True">   
+        <meta name="MobileOptimized" content="320"/>   
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">        
+        <title>Set Timer</title>
+    </head>
+
+        <body>
+            <div id="Timer">
+                <p>Enter time, then click "Submit":</p>
+                
+                <p>Time (min):</p> <input type="text" id="userMin" name="userMin"><br>
+                <input type="button" id="Submit Time" class="bigButton" value="Submit" onclick="setTimer();">    
+
+            </div>
+            <div id="Timer Audios">
+                <audio id="Timer Aud1">
+                    <source src="https://notificationsounds.com/soundfiles/f76a89f0cb91bc419542ce9fa43902dc/file-sounds-1154-done-for-you.mp3" type="audio/mpeg">
+                </audio>
+                <audio id="Timer Aud2">
+                    <source src="https://notificationsounds.com/soundfiles/44c4c17332cace2124a1a836d9fc4b6f/file-sounds-1147-that-was-quick.mp3" type="audio/mpeg">
+                </audio>
+            </div>
+            <script>
+                function playAudio1() {
+                    document.getElementById('Timer Aud1').play();
+                }
+                function playAudio2() {
+                    document.getElementById('Timer Aud2').play();
+                }
+                   
+                function setTimer() {
+                    playAudio1();
+                    var userTime = document.getElementById('userMin').value;
+                    var hrs_to_sec = 60000*userTime;
+                    setTimeout(timerDone, hrs_to_sec);
+                }
+
+                function timerDone() {
+                    playAudio2();
+                    alert("Timer Done!");
+                       
+                }
+            </script>
+    
+
+        </body>
+
+  </html>
